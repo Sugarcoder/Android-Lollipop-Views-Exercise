@@ -12,7 +12,7 @@ import com.codepath.android.lollipopexercise.models.Contact;
 import com.squareup.picasso.Picasso;
 
 public class DetailsActivity extends ActionBarActivity {
-    public static final String EXTRA_CONTACT = "EXTRA_CONTACT";
+    public static final String EXTRA_CONTACT = "Contact";
     private Contact mContact;
     private ImageView ivProfile;
     private TextView tvName;
@@ -23,6 +23,10 @@ public class DetailsActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
+
+        // mContact = (Contact) getIntent().getSerializableExtra("c);
+
 
         ivProfile = (ImageView) findViewById(R.id.ivProfile);
         tvName = (TextView) findViewById(R.id.tvName);
@@ -37,6 +41,8 @@ public class DetailsActivity extends ActionBarActivity {
         tvName.setText(mContact.getName());
         tvPhone.setText(mContact.getNumber());
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

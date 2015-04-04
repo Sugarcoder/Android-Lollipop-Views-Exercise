@@ -2,6 +2,7 @@ package com.codepath.android.lollipopexercise.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +11,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.android.lollipopexercise.R;
+import com.codepath.android.lollipopexercise.activities.DetailsActivity;
 import com.codepath.android.lollipopexercise.models.Contact;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+
+
 // Provide the underlying view for an individual list item.
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.VH> {
-    private Activity mContext;
+    private static Activity mContext;
     private List<Contact> mContacts;
+
+    private static Contact mmContact;
+
 
     public ContactsAdapter(Activity context, List<Contact> contacts) {
         mContext = context;
@@ -38,10 +45,11 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.VH> {
     // Display data at the specified position
     @Override
     public void onBindViewHolder(VH holder, int position) {
-        Contact contact = mContacts.get(position);
-        holder.rootView.setTag(contact);
-        holder.tvName.setText(contact.getName());
-        Picasso.with(mContext).load(contact.getThumbnailDrawable()).into(holder.ivProfile);
+        //Contact contact = mContacts.get(position);
+        mmContact = mContacts.get(position);
+        holder.rootView.setTag(mmContact);
+        holder.tvName.setText(mmContact.getName());
+        Picasso.with(mContext).load(mmContact.getThumbnailDrawable()).into(holder.ivProfile);
     }
 
     @Override
@@ -71,6 +79,12 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.VH> {
                     if (contact != null) {
                         // Fire an intent when a contact is selected
                         // Pass contact object in the bundle and populate details activity.
+
+
+                        Intent intent = new Intent(mContext, DetailsActivity.class);
+                        intent.putExtra("Contact", mmContact);
+                        mContext.startActivity(intent);
+
                     }
                 }
             });
