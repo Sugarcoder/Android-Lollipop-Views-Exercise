@@ -15,10 +15,11 @@ These material widgets and animations were introduced in Android 5.0 (API level 
 
 The app composes two screens. The first screen displays a list of contacts, in which, each item is described by the contact's avatar and name. Once a contact is selected from the list, a second screen appears with additional details about the contact, including his contact no. and a floating action button to place a phone call to this contact.
 
-**Contact List**
+#### Contact List
 <img src="http://i.imgur.com/VSbsd4Gl.png" height="400" width="300">
 
-**Contact Details**
+
+#### Contact Details
 
 <img src="http://i.imgur.com/NpKJJgdl.png" height="400" width="300">
 
