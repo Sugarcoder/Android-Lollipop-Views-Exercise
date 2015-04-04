@@ -1,4 +1,4 @@
-# Android Lollipop Views Exercise
+# Android Lollipop Views
 
 This is an application that displays Android lollipop views.
 
